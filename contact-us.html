@@ -231,7 +231,6 @@
             }
         </style>
     </noscript>
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body data-rsssl="1"
@@ -831,7 +830,7 @@
                         <div class="footer_top_holder col-4">
                             <div class="container">
                                 <div class="row footer-top-col-4 footer-1">
-                                    <div class="sidebar col-md-3 col-sm-6 col-1">
+                                    <div class="sidebar col-md-4 col-sm-6 col-1">
                                         <aside id="text-3" class="widget widget_text">
                                             <h4 class="widget-title"><span>Get in touch</span></h4>
                                             <div class="textwidget">
@@ -844,7 +843,7 @@
                                             </div>
                                         </aside>
                                     </div>
-                                    <div class="sidebar col-md-3 col-sm-6 col-2">
+                                    <div class="sidebar col-md-4 col-sm-6 col-2">
                                         <aside id="text-4" class="widget widget_text">
                                             <h4 class="widget-title"><span>Business Hours</span></h4>
                                             <div class="textwidget">
@@ -856,50 +855,73 @@
                                             </div>
                                         </aside>
                                     </div>
-                                    <div class="sidebar col-md-3 col-sm-6 col-3"></div>
-                                    <div class="sidebar col-md-3 col-sm-6 col-4">
+                                    <!-- <div class="sidebar col-md-3 col-sm-6 col-3"></div> -->
+                                    <a href="contact-us.html"> <button
+                                            style="border-radius: 20px; font-size: 10px; width: 15%; height: 30px; background-color: #fe4800; border: #fe4800; margin-left: -20%;"><i
+                                                class="fa fa-phone"> &nbsp;&nbsp;Contact Us</i></button></a>
+                                    <!-- <a> <button  style="border-radius: 20px; font-size: 10px; width: 15%; height: 30px; background-color: #fe4800; border: #fe4800;" > <i class="fa fa-paper-plane">&nbsp;&nbsp;Get A Quote</i></button></a> -->
+                                    <div class="sidebar col-md-3 col-sm-6 col-4 " style="margin-top: 2%;">
                                         <aside id="mc4wp_form_widget-2" class="widget widget_mc4wp_form_widget">
-                                            <h4 class="widget-title"><span>Mailing List</span></h4>
-                                            <script>(function () {
-                                                    if (!window.mc4wp) {
-                                                        window.mc4wp = {
-                                                            listeners: [],
-                                                            forms: {
-                                                                on: function (event, callback) {
-                                                                    window.mc4wp.listeners.push(
-                                                                        {
-                                                                            event: event,
-                                                                            callback: callback
-                                                                        }
-                                                                    );
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                })();
-                                            </script>
-                                            <form id="mc4wp-form-3" class="mc4wp-form mc4wp-form-862 mc4wp-form-basic"
-                                                method="post" data-id="862" data-name="Default sign-up form">
+                                            <!-- <h4 class="widget-title"><span>Mailing List</span></h4> -->
+
+                                            <form id="subscription-form"
+                                                class="mc4wp-form mc4wp-form-862 mc4wp-form-basic" method="post"
+                                                data-id="862">
                                                 <div class="mc4wp-form-fields">
                                                     <div class="mail-chimp-wrapper">
-                                                        <p>Enter your email address for our mailing list to keep your
-                                                            self our lastest updated.</p>
-                                                        <div class="mail-chimp-button">
-                                                            <input type="email" id="mc4wp_email" name="EMAIL"
-                                                                placeholder="Email Address" required />
-                                                            <button type="submit"><i
-                                                                    class="fa fa-paper-plane"></i></button>
-                                                        </div>
+                                                        <p>Enter yourContact Details for our mailing list to keep
+                                                            yourself updated with our latest updates.</p>
+                                                        <!-- <div class="mail-chimp-button">
+                                                            <input type="email" id="email" name="email" placeholder="Email Address" required />
+                                                            <button type="submit"><i class="fa fa-paper-plane"></i></button>
+                                                        </div> -->
                                                     </div>
-                                                </div><label style="display: none !important;">Leave this field empty if
-                                                    you're human: <input type="text" name="_mc4wp_honeypot" value
-                                                        tabindex="-1" autocomplete="off" /></label><input type="hidden"
-                                                    name="_mc4wp_timestamp" value="1697870354" /><input type="hidden"
-                                                    name="_mc4wp_form_id" value="862" /><input type="hidden"
-                                                    name="_mc4wp_form_element_id" value="mc4wp-form-3" />
-                                                <div class="mc4wp-response"></div>
+                                                </div>
                                             </form>
                                         </aside>
+
+                                        <!-- Add this script to handle form submission -->
+                                        <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                        <script>
+                                            document.getElementById('subscription-form').addEventListener('submit', function(event) {
+                                                event.preventDefault();
+                                        
+                                                const email = document.getElementById('email').value;
+                                        
+                                                fetch('http://localhost:8080/auth/save-subscribe', {
+                                                    method: 'POST',
+                                                    headers: {
+                                                        'Content-Type': 'application/json'
+                                                    },
+                                                    body: JSON.stringify({ email: email })
+                                                })
+                                                .then(response => {
+                                                    if (!response.ok) {
+                                                        throw new Error('Network response was not ok');
+                                                    }
+                                                    return response.json();
+                                                })
+                                                .then(data => {
+                                                    console.log('Success:', data);
+                                                    Swal.fire({
+                                                        icon: 'success',
+                                                        title: 'Subscribed!',
+                                                        text: 'You have successfully subscribed to our mailing list.',
+                                                        confirmButtonText: 'OK'
+                                                    });
+                                                })
+                                                .catch((error) => {
+                                                    console.error('Error:', error);
+                                                    Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Oops...',
+                                                        text: 'Something went wrong. Please try again later.',
+                                                        confirmButtonText: 'OK'
+                                                    });
+                                                });
+                                            });
+                                        </script> -->
+
                                     </div>
                                 </div>
                             </div>
@@ -910,7 +932,7 @@
                     <div class="container">
                         <div class="bottom-bar-inner">
                             <div class="row">
-                                <div class="col-md-6 sidebar sidebar-bottom-left">
+                                <div class="col-md-4 sidebar sidebar-bottom-left">
                                     <aside id="nav_menu-2" class="widget widget_nav_menu">
                                         <div class="menu-bottom-bar-right-container">
                                             <ul id="menu-bottom-bar-right" class="menu">
@@ -934,7 +956,7 @@
                                         </div>
                                     </aside>
                                 </div>
-                                <div class="col-md-6 sidebar sidebar-bottom-right">
+                                <div class="col-md-8 sidebar sidebar-bottom-right">
                                     <aside id="text-5" class="widget widget_text">
                                         <div class="textwidget">
                                             <p class="bottom-bar-text">© 2023 A N Mane Construction and solar is proudly
