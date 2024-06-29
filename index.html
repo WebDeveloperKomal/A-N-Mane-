@@ -1365,63 +1365,6 @@
                                                             </div>
                                                             <div class="portfolio  margin-bottom-100  style_2 slider"
                                                                 id="portfolio-6533bbf41438b">
-                                                                <div class="portfolio-tabs">
-                                                                    <div class="tab-wrapper   center">
-                                                                        <ul class="cat-style-normal primary-color">
-                                                                            <li class="active">
-                                                                                <a class="isotope-portfolio ladda-button active"
-                                                                                    data-section-id="6533bbf41438b"
-                                                                                    data-group="all" data-filter="*"
-                                                                                    data-layout-type="grid"
-                                                                                    data-order="DESC" data-column="4"
-                                                                                    data-overlay-style="title-float"
-                                                                                    data-style="zoom-out"
-                                                                                    data-spinner-color="#ffb600"
-                                                                                    href="javascript:;">
-                                                                                    All </a>
-                                                                            </li>
-                                                                            <li class>
-                                                                                <a class="isotope-portfolio isotope-portfolio-cat ladda-button "
-                                                                                    href="javascript:;"
-                                                                                    data-section-id="6533bbf41438b"
-                                                                                    data-layout-type="grid"
-                                                                                    data-column="4" data-order="DESC"
-                                                                                    data-group="architecture"
-                                                                                    data-filter=".Architecture"
-                                                                                    data-overlay-style="title-float"
-                                                                                    data-style="zoom-out"
-                                                                                    data-spinner-color="#ffb600">
-                                                                                    Architecture </a>
-                                                                            </li>
-                                                                            <li class>
-                                                                                <a class="isotope-portfolio isotope-portfolio-cat ladda-button "
-                                                                                    href="javascript:;"
-                                                                                    data-section-id="6533bbf41438b"
-                                                                                    data-layout-type="grid"
-                                                                                    data-column="4" data-order="DESC"
-                                                                                    data-group="construction"
-                                                                                    data-filter=".Construction"
-                                                                                    data-overlay-style="title-float"
-                                                                                    data-style="zoom-out"
-                                                                                    data-spinner-color="#ffb600">
-                                                                                    Construction </a>
-                                                                            </li>
-                                                                            <li class="last">
-                                                                                <a class="isotope-portfolio isotope-portfolio-cat ladda-button "
-                                                                                    href="javascript:;"
-                                                                                    data-section-id="6533bbf41438b"
-                                                                                    data-layout-type="grid"
-                                                                                    data-column="4" data-order="DESC"
-                                                                                    data-group="interior-design"
-                                                                                    data-filter=".InteriorDesign"
-                                                                                    data-overlay-style="title-float"
-                                                                                    data-style="zoom-out"
-                                                                                    data-spinner-color="#ffb600">
-                                                                                    Interior Design </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
                                                                 <div class="portfolio-wrapper darna-col-md-4  grid owl-carousel"
                                                                     data-plugin-options="{ &quot;items&quot; : 4,&quot;pagination&quot;: false, &quot;navigation&quot;: true, &quot;autoPlay&quot;: false}"
                                                                     data-section-id="6533bbf41438b"
@@ -1839,7 +1782,52 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <script type="text/javascript">
+                                        (function ($) {
+                                            "use strict";
 
+                                            var $container = jQuery('div[data-section-id="653372122064e"]');
+                                            $($container).css('opacity', 0);
+                                            $(window).load(function () {
+                                                $('.isotope-portfolio', '.portfolio-tabs').off();
+                                                $('.isotope-portfolio', '.portfolio-tabs').click(function () {
+                                                    $('.isotope-portfolio', '.portfolio-tabs').removeClass('active');
+                                                    $('li', '.portfolio-tabs').removeClass('active');
+                                                    $(this).addClass('active');
+                                                    $(this).parent().addClass('active');
+                                                    var dataSectionId = $(this).attr('data-section-id');
+                                                    var filter = $(this).attr('data-filter');
+                                                    var $container = jQuery('div[data-section-id="' + dataSectionId + '"]').isotope({ filter: filter });
+                                                    $container.imagesLoaded(function () {
+                                                        $container.isotope('layout');
+                                                    });
+                                                });
+                                                var $container = jQuery('div[data-section-id="653372122064e"]');
+                                                $container.imagesLoaded(function () {
+                                                    $container.isotope({
+                                                        itemSelector: '.portfolio-item'
+                                                    }).isotope('layout');
+                                                });
+                                                $($container).css('opacity', 1);
+
+                                                $container.closest('.portfolio').find('.isotope-portfolio-cat.active').trigger('click');
+
+                                            });
+
+
+                                            $(document).ready(function () {
+
+                                                $('.portfolio-item > div.entry-thumbnail').hoverdir();
+
+                                                PortfolioAjaxAction.init('https://themes.g5plus.net/darna/wp-admin/admin-ajax.php');
+                                                var $container = $('div[data-section-id="653372122064e"]');
+                                                console.log($container);
+                                                $($container).bind('afterOwlInit', function () {
+                                                    $('.owl-controls', '.portfolio-wrapper').addClass('container');
+                                                });
+                                            })
+                                        })(jQuery);
+                                    </script>
                                     <style>
                                         .darna-heading.style2 h2 {
                                             color: #020202;
@@ -2485,7 +2473,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="container">
                                     <div class="vc_row wpb_row vc_row-fluid margin-bottom-100">
                                         <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -2656,7 +2643,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <!-- <div class="fullwidth">
                                     <div class="vc_row wpb_row vc_row-fluid vc_custom_1441335631466">
                                         <div class="wpb_column vc_column_container vc_col-sm-12">
@@ -2998,7 +2984,6 @@
                                     </div>
                                 </div> -->
                             </div>
-
                         </div>
                     </div>
                 </div>
